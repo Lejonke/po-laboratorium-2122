@@ -16,15 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from blog import views
 from django.urls import include, re_path
-#from django.conf.urls import patterns, url
-from blog.views import current_datetime
-# ,get_data
+from blog.views import books_list
 
 
 urlpatterns = [
     re_path('polls/', include('polls.urls')),
     re_path('blog/', include('blog.urls')),
     re_path('admin/', admin.site.urls),
-#    re_path(r'^api/data/$', get_data , name='api-data'),
-    re_path('', current_datetime, name='index')
+# re_path(r'^api/data/$', get_data , name='api-data'),
+    re_path('', books_list, name='index')
 ]
