@@ -31,19 +31,25 @@ class FileFormat(models.Model):
 #       condition = models.TextField('''max_length = 50''')
      
     class BookFormat(models.TextChoices):
+            #   UNINDENT DEOSE NOT MATCH ANY OUTER INDENTATION LEVEL - złe tab'y ?!
+            # klasa tworzona na podstawie tutorialu ze strony djangoproject ....przykład na dole jako class Student(models.Model):
+            # usuwanie komentarzy i 'dokumentacji' nie usuwa problemu
+            # przesuwanie zmiennych (hard_cover...ect.) o +-1 tab nie usuwa błędu
+            # przesuwanie zmiennej book_format o +-1 tab nie usuwa błędu
+            # przesuwanie funkcji __str__ o +-1 tab nie usuwa błędu
+            
         """ Klasa Formatu Ksiązki, wewnętrzna w FileFormat czy fizyczna (okładka twarda/miękka) czy plik, oraz stan ksiązki ("nówka",
              "używana" w przypadku fizycznych, czy np. skan w przypadku starych niedostepnych już
-              książek dostępnych w formie wirtualnej """
-        
-        hard_cover_printed = 'HCP', _(' Druk/papier w twardej okładce ')
-        soft_cover_printed = 'PS', _(' Druk/papier w miękkiej okładce') 
-        epub = 'epub' , _('e-publikacja')
-        pdf = 'pdf', _('pdf jaki jest każdy widzi')
-        
-    book_format = models.CharField(
-        max_length = 20,
-        choices = BookFormat.choices,
-        default = BookFormat.epub)
+             książek dostępnych w formie wirtualnej """
+    
+            hard_cover_printed = 'HCP', _(' Druk/papier w twardej okładce ')
+            soft_cover_printed = 'PS', _(' Druk/papier w miękkiej okładce') 
+            epub = 'epub' , _('e-publikacja')
+            pdf = 'pdf', _('pdf jaki jest każdy widzi')
+
+    # tu też (?)   - przesuwane w prawo i lewo nie usuwają błędu       
+    book_format = models.CharField(max_length = 20, choices = BookFormat.choices)   #BookFormat - dziedziczenie
+            #default = BookFormat.epub)                                                       #self.choices? - still error
         
     def __str__(self):
         return self.file_format
