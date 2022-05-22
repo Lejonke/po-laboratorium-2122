@@ -26,34 +26,41 @@ class About(models.Model):
 
 
 class FileFormat(models.Model):
-     """ Klasa Formatu Pliku - Ksiązki..."""
-     
-#       condition = models.TextField('''max_length = 50''')
-     
+    """ Klasa Formatu Pliku - Ksiązki..."""
+
+    def __init__(self):
+ 
+     condition = models.TextField('''max_length = 50''')
+
     class BookFormat(models.TextChoices):
-            #   UNINDENT DEOSE NOT MATCH ANY OUTER INDENTATION LEVEL - złe tab'y ?!
+            #   UNINDENT DOES NOT MATCH ANY OUTER INDENTATION LEVEL - złe odstępy/tab'y ?!
             # klasa tworzona na podstawie tutorialu ze strony djangoproject ....przykład na dole jako class Student(models.Model):
-            # usuwanie komentarzy i 'dokumentacji' nie usuwa problemu
-            # przesuwanie zmiennych (hard_cover...ect.) o +-1 tab nie usuwa błędu
-            # przesuwanie zmiennej book_format o +-1 tab nie usuwa błędu
-            # przesuwanie funkcji __str__ o +-1 tab nie usuwa błędu
-            
+
+            #dziennik dziłań:
+            # 1. usunięcie komentarzy i 'dokumentacji' nie usuwa problemu
+            # 2. przesunięcie zmiennych (hard_cover...ect.) o +-1 tab nie usuwa błędu
+            # 3. przesunięcie zmiennej book_format o +-1 tab nie usuwa błędu
+            # 4. przesunięcie funkcji __str__ o +-1 tab nie usuwa błędu
+            # 5. zrównanie wszystkeigo do lewej krawędzi i 'przetabowanie' (tylko tab) wszystkeigo
+            # do odpowiednich poziomów nie usuwa błędu
+            # 6. usuniecie ewentualnych spacji w pustych wersach kodu nie usuwa problemu
+            # 7. doadanie ' def __init__(self):' w ln: 31 pozwala na uruchomienie serwera !!!!!
+
         """ Klasa Formatu Ksiązki, wewnętrzna w FileFormat czy fizyczna (okładka twarda/miękka) czy plik, oraz stan ksiązki ("nówka",
              "używana" w przypadku fizycznych, czy np. skan w przypadku starych niedostepnych już
              książek dostępnych w formie wirtualnej """
-    
-            hard_cover_printed = 'HCP', _(' Druk/papier w twardej okładce ')
-            soft_cover_printed = 'PS', _(' Druk/papier w miękkiej okładce') 
-            epub = 'epub' , _('e-publikacja')
-            pdf = 'pdf', _('pdf jaki jest każdy widzi')
 
-    # tu też (?)   - przesuwane w prawo i lewo nie usuwają błędu       
+        hard_cover_printed = 'HCP', _(' Druk/papier w twardej okładce ')
+        soft_cover_printed = 'SCP', _(' Druk/papier w miękkiej okładce') 
+        epub = 'epub' , _('e-publikacja')
+        pdf = 'pdf', _('pdf jaki jest każdy widzi')
+        
     book_format = models.CharField(max_length = 20, choices = BookFormat.choices)   #BookFormat - dziedziczenie
             #default = BookFormat.epub)                                                       #self.choices? - still error
-        
+
     def __str__(self):
         return self.file_format
-    
+
 #class Student(models.Model):
 #
 #    class YearInSchool(models.TextChoices):
@@ -68,7 +75,7 @@ class FileFormat(models.Model):
 #        choices=YearInSchool.choices,
 #        default=YearInSchool.FRESHMAN,
 #    )
-        
+#
 #    def is_upperclass(self):
   #          return self.year_in_school in {             #tutorial z docs.djangoproject.com
     #            self.YearInSchool.JUNIOR,
@@ -80,7 +87,7 @@ class Book(models.Model):
         klucz obcy do klas zdefiniowanych powyżej """
 
     hard_cover_printed = 'HCP'
-    soft_cover_printed = 'PS'
+    soft_cover_printed = 'SCP'
     epub = 'epub' 
     pdf = 'pdf'
 
