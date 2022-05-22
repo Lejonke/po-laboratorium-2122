@@ -23,6 +23,7 @@ urlpatterns = [
     re_path('polls/', include('polls.urls')),
     re_path('blog/', include('blog.urls')),
     re_path('admin/', admin.site.urls),
-# re_path(r'^api/data/$', get_data , name='api-data'),
-    re_path('', books_list, name='index')
+    #re_path(r'^api/data/$', get_data , name='api-data'),
+    re_path('', books_list, name='index')   #main site tożsame z listą ksiżżek
+    #re_path('', views.index, name='index')
 ]
