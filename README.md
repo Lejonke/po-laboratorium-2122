@@ -1,3 +1,3 @@
 Bartosz Woźniak, 254883
 
-mysite_v2 to docelowo projekt zaliczeniowy 
+mysite_v2 (blog, polls tworzone z tutorialem) to docelowo projekt zaliczeniowy 
