@@ -45,18 +45,20 @@ class FileFormat(models.Model):
     condition = models.TextField('''max_length = 50''')
 
     class BookFormat(models.TextChoices):
-            #   UNINDENT DOES NOT MATCH ANY OUTER INDENTATION LEVEL - złe odstępy/tab'y ?!
-            # klasa tworzona na podstawie tutorialu ze strony djangoproject ....przykład na dole jako class Student(models.Model):
-
-            #dziennik dziłań:
-            # 1. usunięcie komentarzy i 'dokumentacji' nie usuwa problemu
-            # 2. przesunięcie zmiennych (hard_cover...ect.) o +-1 tab nie usuwa błędu
-            # 3. przesunięcie zmiennej book_format o +-1 tab nie usuwa błędu
-            # 4. przesunięcie funkcji __str__ o +-1 tab nie usuwa błędu
-            # 5. zrównanie wszystkeigo do lewej krawędzi i 'przetabowanie' (tylko tab) wszystkeigo
-            # do odpowiednich poziomów nie usuwa błędu
-            # 6. usuniecie ewentualnych spacji w pustych wersach kodu nie usuwa problemu
-            # 7. doadanie ' def __init__(self):' przy $%$!!!!!@@@@ pozwala na uruchomienie serwera !!!!!
+        
+        #PONIŻEJ ZNAJDUJĄ SIĘ KOMENTARZE DOTYCZĄCE ROZWIĄZENEGO JUŻ BŁĘDU !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!:
+  
+      #   UNINDENT DOES NOT MATCH ANY OUTER INDENTATION LEVEL - złe odstępy/tab'y ?!
+      # klasa tworzona na podstawie tutorialu ze strony djangoproject ....przykład na dole jako class Student(models.Model):
+      #dziennik dziłań:
+   # 1. usunięcie komentarzy i 'dokumentacji' nie usuwa problemu
+   # 2. przesunięcie zmiennych (hard_cover...ect.) o +-1 tab nie usuwa błędu
+   # 3. przesunięcie zmiennej book_format o +-1 tab nie usuwa błędu
+   # 4. przesunięcie funkcji __str__ o +-1 tab nie usuwa błędu
+   # 5. zrównanie wszystkeigo do lewej krawędzi i 'przetabowanie' (tylko tab) wszystkeigo
+   # do odpowiednich poziomów nie usuwa błędu
+   # 6. usuniecie ewentualnych spacji w pustych wersach kodu nie usuwa problemu
+   # 7. doadanie ' def __init__(self):' przy $%$!!!!!@@@@ pozwala na uruchomienie serwera !!!!!
 
         """ Klasa Formatu Ksiązki, wewnętrzna w FileFormat czy fizyczna (okładka twarda/miękka) czy plik, oraz stan ksiązki ("nówka",
              "używana" w przypadku fizycznych, czy np. skan w przypadku starych niedostepnych już
@@ -75,7 +77,6 @@ class FileFormat(models.Model):
 ##            (epub),
 ##            (pdf),
 ##        )
-
 
         hard_cover_printed = 'HCP', _(' Druk/papier w twardej okładce ')
         soft_cover_printed = 'SCP', _(' Druk/papier w miękkiej okładce')
