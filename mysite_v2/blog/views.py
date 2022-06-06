@@ -14,7 +14,7 @@ from django.contrib.auth import get_user_model
 def books_list(request):
     now = datetime.datetime.now()
     content = 'że lista tabelka coś takiego'
-    #render_to_response("template.html", {"content":content})
+    render_to_response("template.html", {"content":content})
     html = """
 <!DOCTYPE html>
 <html>
